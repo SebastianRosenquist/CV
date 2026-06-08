@@ -7,6 +7,7 @@ const utcReadout = document.getElementById("utcReadout");
 const commandForm = document.getElementById("commandForm");
 const commandInput = document.getElementById("commandInput");
 const commandGhost = document.getElementById("commandGhost");
+const terminalPinned = document.getElementById("terminalPinned");
 const terminalLog = document.getElementById("terminalLog");
 const commandSuggestion = document.getElementById("commandSuggestion");
 
@@ -14,7 +15,7 @@ const promptLabel = "sebastian@portfolio ~ $";
 const commandHistory = [];
 const suggestions = ["help", "status", "industries", "work", "about", "roles", "contact", "time"];
 const bootLines = [
-  "[01] WAHBA-OS v4.7 (phosphor build)",
+  "[01] SAR-OS v4.7 (phosphor build)",
   "[02] booting /dev/interface...",
   "[03] mounting portfolio -> [ok]",
   "[04] loading motion profile -> [ok]",
@@ -63,7 +64,7 @@ const profile = {
     "Own delivery across business framing, technical execution, and stakeholder translation.",
   ],
   about: [
-    "welcome. this is Sebastian Rosenquist terminal.",
+    "Welcome. This is Sebastian Rosenquist terminal.",
     "Internationally raised former elite swimmer turned developer.",
     "I build AI, LLM/RAG, automation, analytics, and tech-enabled systems that connect business framing with technical execution.",
     "Current focus: agent workflows, internal tooling, staffing platforms, predictive models, and practical full-stack delivery.",
@@ -74,6 +75,56 @@ const profile = {
     "Past roles include student project leadership at Fujitsu, digital operations at WS Audiology, and teaching assistant work at Copenhagen Business School where he coached students in React Native, Git, and MVP execution.",
     "He is particularly effective where product, data, and engineering need a single operator who can move from framing to build to rollout.",
   ],
+  dossier: {
+    avatarSrc: "Profile.jpg",
+    avatarAlt: "Portrait of Sebastian A. Rosenquist",
+    shell: "SAR_TERMINAL / DOSSIER",
+    signal: "signal ok",
+    operatorLabel: "operator",
+    operatorCode: "SAR-D6-37",
+    accessLabel: "access",
+    accessValue: "*_*_*",
+    tagline: "AI, SaaS, and FinTech systems. Full-surface operator across product, data, and delivery.",
+    facts: [
+      { label: "name", value: "Sebastian A. Rosenquist" },
+      { label: "role", value: "Tech Analyst & ML Developer" },
+      { label: "based", value: "Vanlose, Copenhagen" },
+      { label: "now", value: "Thursday Consulting" },
+      { label: "clearance", value: "LLM / RAG / Automation / Analytics" },
+      { label: "sec_code", value: "SAR-25805-W-2973" },
+    ],
+    paragraphs: [
+      "I work across the full product surface: business framing, workflow design, data handling, automation logic, and the implementation detail that determines whether a system actually gets adopted.",
+      "Recent work spans LLM and RAG-powered agents, internal tooling, staffing workflows, predictive analytics, scraper pipelines, and consultant support systems where usable outputs matter more than novelty.",
+      "Before Thursday Consulting, I built trader-facing analytics and financial ML models at Centrica Energy Trading, supported global digital operations at WS Audiology, and taught students at Copenhagen Business School how to move from MVP ideas into actual technical delivery.",
+      "Most useful when a team needs one operator who can move between stakeholders, product logic, and implementation without letting the business intent get lost in translation.",
+    ],
+    industries: [
+      { label: "AI / LLM tools", value: "copilots, agents, operator interfaces" },
+      { label: "SaaS / B2B", value: "dashboards, workflows, internal systems" },
+      { label: "FinTech / Energy", value: "analytics, forecasting, compliance-facing tools" },
+      { label: "Education / Enablement", value: "technical onboarding, teaching, MVP delivery" },
+    ],
+    services: [
+      "Ship pragmatic v1 systems in weeks, not quarters",
+      "Design AI-first workflows that match how teams actually operate :)",
+      "Build AI and automation layers that reduce manual drag",
+      "Translate complex technical decisions into usable product behavior",
+      "Close the gap between business framing, data logic, and production delivery",
+    ],
+    stack: [
+      { label: "design", value: "product . systems . workflows . service logic" },
+      { label: "engineering", value: "Python . TypeScript . RAG . automation tooling" },
+      { label: "analytics", value: "ML models . NLP . scraping . forecasting pipelines" },
+      { label: "delivery", value: "solo-to-v1 . operator enablement . adoption-minded execution" },
+    ],
+    deployments: [
+      { label: "Thursday Consulting", value: "Associate . Tech management consulting . Copenhagen", meta: "2025->" },
+      { label: "Centrica Energy Trading", value: "Data analyst and ML developer . market tooling", meta: "2023-25" },
+      { label: "WS Audiology", value: "Digital operations student assistant . global CMS", meta: "2021-23" },
+      { label: "Copenhagen Business School", value: "Teaching assistant . innovation and new technology", meta: "2022-25" },
+    ],
+  },
   contact: [
     { label: "phone", value: "+45 61 65 96 62", href: "tel:+4561659662" },
     { label: "email", value: "seb_rosenquist@hotmail.com", href: "mailto:seb_rosenquist@hotmail.com" },
@@ -93,7 +144,7 @@ const profile = {
     {
       eyebrow: "Tech Management Consulting . AI Operations",
       title: "Thursday Consulting",
-      meta: "2025",
+      meta: "2025 - Present",
       lines: [
         "Designed and deployed LLM and RAG-powered agents for research and consultant support.",
         "Automated internal reporting and workflow operations with scripting and data tools.",
@@ -113,15 +164,59 @@ const profile = {
       tags: ["ML Models", "NLP", "Market Tooling", "Data Pipelines"],
     },
     {
-      eyebrow: "Digital Operations . Teaching & Product",
-      title: "WS Audiology + CBS",
-      meta: "2021-25",
+      eyebrow: "Digital Operations . Global Web Systems",
+      title: "WS Audiology",
+      meta: "2021-23",
       lines: [
         "Supported and modernized a global CMS and digital portfolio environment.",
-        "Taught 300+ students React Native, Git workflows, and technical MVP discipline.",
-        "Helped bridge product thinking, project leadership, and technical execution.",
+        "Migrated and developed WSA's online brand portfolio into a modern platform that remains in use.",
+        "Delivered global support, development, and maintenance across a complex content operation.",
       ],
-      tags: ["CMS", "Teaching", "React Native", "Product Enablement"],
+      tags: ["CMS", "Web Ops", "Migration", "Global Support"],
+    },
+    {
+      eyebrow: "Teaching . Innovation & New Technology",
+      title: "Copenhagen Business School",
+      meta: "2022-25",
+      lines: [
+        "Taught 300+ students React Native, Git workflows, and technical MVP discipline.",
+        "Helped students refine project concepts and translate ideas into workable technical solutions.",
+        "Bridged product thinking, execution, and best-practice engineering habits in coursework.",
+      ],
+      tags: ["Teaching", "React Native", "MVP Delivery", "Product Enablement"],
+    },
+    {
+      eyebrow: "Project Leadership . Enterprise IT",
+      title: "Fujitsu",
+      meta: "2022-23",
+      lines: [
+        "Supported multiple IT project leaders to improve coordination and on-time delivery.",
+        "Worked close to project execution, stakeholder alignment, and structured delivery support.",
+        "Strengthened the operating layer between planning, tracking, and practical execution.",
+      ],
+      tags: ["Project Leadership", "Enterprise IT", "Coordination", "Delivery"],
+    },
+    {
+      eyebrow: "Leadership . Outdoor Operations",
+      title: "Brandbjerg Hojskole",
+      meta: "2018 - Present",
+      lines: [
+        "Served as student, volunteer, and instructor in outdoor life and climbing programs.",
+        "Coordinated volunteer work weekends and events for groups ranging from 90 to 350 participants.",
+        "Built practical leadership through safety, logistics, facilitation, and instruction.",
+      ],
+      tags: ["Leadership", "Instruction", "Operations", "Facilitation"],
+    },
+    {
+      eyebrow: "International Programs . Community Operations",
+      title: "CBS Exchange Crew",
+      meta: "2019-22",
+      lines: [
+        "Facilitated and coordinated the official CBS exchange program for 800+ international students per year.",
+        "Handled logistics and support at scale in a fast-moving service environment.",
+        "Built operational confidence in communication, coordination, and experience delivery.",
+      ],
+      tags: ["Operations", "Logistics", "Coordination", "International Programs"],
     },
   ],
   quickActions: [
@@ -132,6 +227,21 @@ const profile = {
     { label: "email me", command: "contact" },
     { label: "help index", command: "help" },
   ],
+  hero: {
+    prefix: "this_is",
+    system: "SAR-OS v1.7 . build.phosphor . 2026",
+    headline: "Sebastian A. Rosenquist",
+    subline: "AI, SaaS, and FinTech systems",
+    summary: [
+      "Design engineer building LLM/RAG, automation, analytics, and product systems for teams that need usable tools, not demos.",
+      "I ship the full surface: workflows, business framing, implementation, and the delivery detail that keeps systems adopted.",
+    ],
+    rows: [
+      { label: "status", value: "Currently building AI-native operations and workflows at Thursday Consulting" },
+      { label: "based", value: "Vanlose, Copenhagen . Working globally" },
+      { label: "availability", value: "Open to new challenges with technical depth and societal value" },
+    ],
+  },
 };
 
 function sleep(ms) {
@@ -280,6 +390,12 @@ function renderActionRow(actions) {
 
   wrapper.appendChild(row);
   return wrapper;
+}
+
+function renderBlocksInto(container, blocks) {
+  blocks.forEach((block) => {
+    container.appendChild(renderBlock(block));
+  });
 }
 
 function createLinkItem(item) {
@@ -437,7 +553,239 @@ function renderBlock(block) {
     wrapper.appendChild(commandList);
   }
 
+  if (block.kind === "list-table") {
+    const listTable = document.createElement("div");
+    listTable.className = "list-table";
+
+    block.items.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "list-table__row";
+
+      const label = document.createElement("div");
+      label.className = "list-table__label";
+      label.textContent = item.label;
+
+      const value = document.createElement("div");
+      value.className = "list-table__value";
+      value.textContent = item.value;
+
+      row.append(label, value);
+      listTable.appendChild(row);
+    });
+
+    wrapper.appendChild(listTable);
+  }
+
+  if (block.kind === "dossier") {
+    const dossier = document.createElement("article");
+    dossier.className = "dossier-card";
+
+    const header = document.createElement("div");
+    header.className = "dossier-card__header";
+
+    const shell = document.createElement("div");
+    shell.className = "dossier-card__shell";
+    shell.textContent = block.shell;
+
+    const signal = document.createElement("div");
+    signal.className = "dossier-card__signal";
+    signal.textContent = block.signal;
+
+    header.append(shell, signal);
+    dossier.appendChild(header);
+
+    const hero = document.createElement("div");
+    hero.className = "dossier-card__hero";
+
+    const operatorPanel = document.createElement("div");
+    operatorPanel.className = "dossier-card__operator";
+
+    const operatorLabel = document.createElement("div");
+    operatorLabel.className = "dossier-card__label";
+    operatorLabel.textContent = block.operatorLabel;
+
+    const operatorCode = document.createElement("div");
+    operatorCode.className = "dossier-card__code";
+    operatorCode.textContent = block.operatorCode;
+
+    const tagline = document.createElement("p");
+    tagline.className = "dossier-card__tagline";
+    tagline.textContent = block.tagline;
+
+    operatorPanel.append(operatorLabel, operatorCode, tagline);
+
+    const accessPanel = document.createElement("div");
+    accessPanel.className = "dossier-card__access";
+
+    const accessLabel = document.createElement("div");
+    accessLabel.className = "dossier-card__label";
+    accessLabel.textContent = block.accessLabel;
+
+    const accessValue = document.createElement("div");
+    accessValue.className = "dossier-card__access-code";
+    accessValue.textContent = block.accessValue;
+
+    accessPanel.append(accessLabel, accessValue);
+    hero.append(operatorPanel, accessPanel);
+    dossier.appendChild(hero);
+
+    const data = document.createElement("div");
+    data.className = "dossier-card__data";
+
+    const avatar = document.createElement("div");
+    avatar.className = "dossier-card__avatar";
+
+    const avatarImage = document.createElement("img");
+    avatarImage.className = "dossier-card__avatar-image";
+    avatarImage.src = block.avatarSrc;
+    avatarImage.alt = block.avatarAlt;
+    avatar.appendChild(avatarImage);
+
+    const facts = document.createElement("div");
+    facts.className = "dossier-card__facts";
+
+    block.facts.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "dossier-card__fact-row";
+
+      const label = document.createElement("div");
+      label.className = "dossier-card__fact-label";
+      label.textContent = item.label;
+
+      const value = document.createElement("div");
+      value.className = "dossier-card__fact-value";
+      value.textContent = item.value;
+
+      row.append(label, value);
+      facts.appendChild(row);
+    });
+
+    const sideMarks = document.createElement("div");
+    sideMarks.className = "dossier-card__marks";
+    sideMarks.setAttribute("aria-hidden", "true");
+
+    for (let index = 0; index < 3; index += 1) {
+      const mark = document.createElement("div");
+      mark.className = "dossier-card__mark";
+      sideMarks.appendChild(mark);
+    }
+
+    data.append(avatar, facts, sideMarks);
+    dossier.appendChild(data);
+
+    const body = document.createElement("div");
+    body.className = "dossier-card__body";
+
+    const bodyTitle = document.createElement("div");
+    bodyTitle.className = "dossier-card__body-title";
+    bodyTitle.textContent = "dossier / full bio";
+    body.appendChild(bodyTitle);
+
+    block.paragraphs.forEach((paragraph) => {
+      body.appendChild(createParagraph(paragraph));
+    });
+
+    dossier.appendChild(body);
+
+    const sections = document.createElement("div");
+    sections.className = "dossier-card__sections";
+
+    const industriesSection = document.createElement("section");
+    industriesSection.className = "dossier-section";
+    industriesSection.appendChild(createDossierSectionTitle("industries / cleared for"));
+
+    const industriesGrid = document.createElement("div");
+    industriesGrid.className = "dossier-section__industries";
+    block.industries.forEach((item) => {
+      const cell = document.createElement("article");
+      cell.className = "dossier-industry";
+
+      const label = document.createElement("div");
+      label.className = "dossier-industry__label";
+      label.textContent = item.label;
+
+      const value = document.createElement("p");
+      value.className = "dossier-industry__value";
+      value.textContent = item.value;
+
+      cell.append(label, value);
+      industriesGrid.appendChild(cell);
+    });
+    industriesSection.appendChild(industriesGrid);
+
+    const servicesSection = document.createElement("section");
+    servicesSection.className = "dossier-section";
+    servicesSection.appendChild(createDossierSectionTitle("what i do / services"));
+
+    const servicesList = document.createElement("div");
+    servicesList.className = "dossier-section__services";
+    block.services.forEach((item) => {
+      const line = document.createElement("div");
+      line.className = "dossier-service";
+      line.textContent = item;
+      servicesList.appendChild(line);
+    });
+    servicesSection.appendChild(servicesList);
+
+    const stackSection = document.createElement("section");
+    stackSection.className = "dossier-section";
+    stackSection.appendChild(createDossierSectionTitle("practice / stack"));
+
+    const stackList = document.createElement("div");
+    stackList.className = "dossier-section__stack";
+    block.stack.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "dossier-stack__row";
+
+      const label = document.createElement("div");
+      label.className = "dossier-stack__label";
+      label.textContent = item.label;
+
+      const value = document.createElement("div");
+      value.className = "dossier-stack__value";
+      value.textContent = item.value;
+
+      row.append(label, value);
+      stackList.appendChild(row);
+    });
+    stackSection.appendChild(stackList);
+
+    const deploymentsSection = document.createElement("section");
+    deploymentsSection.className = "dossier-section";
+    deploymentsSection.appendChild(createDossierSectionTitle("prior deployments"));
+
+    const deploymentsList = document.createElement("div");
+    deploymentsList.className = "dossier-section__deployments";
+    block.deployments.forEach((item) => {
+      const row = document.createElement("div");
+      row.className = "dossier-deployment";
+
+      const main = document.createElement("div");
+      main.className = "dossier-deployment__main";
+      main.textContent = `${item.label} . ${item.value}`;
+
+      const meta = document.createElement("div");
+      meta.className = "dossier-deployment__meta";
+      meta.textContent = item.meta;
+
+      row.append(main, meta);
+      deploymentsList.appendChild(row);
+    });
+    deploymentsSection.appendChild(deploymentsList);
+
+    sections.append(industriesSection, servicesSection, stackSection, deploymentsSection);
+    dossier.appendChild(sections);
+    wrapper.appendChild(dossier);
+  }
+
   return wrapper;
+}
+
+function createDossierSectionTitle(text) {
+  const title = document.createElement("div");
+  title.className = "dossier-section__title";
+  title.textContent = text;
+  return title;
 }
 
 function appendLogEntry(commandText, blocks = [], type = "command") {
@@ -471,6 +819,49 @@ function appendLogEntry(commandText, blocks = [], type = "command") {
 
 function clearTerminal() {
   terminalLog.textContent = "";
+}
+
+function renderPinnedOverview() {
+  terminalPinned.textContent = "";
+
+  const hero = document.createElement("section");
+  hero.className = "terminal-hero";
+
+  const prefix = document.createElement("div");
+  prefix.className = "terminal-hero__prefix";
+  prefix.textContent = profile.hero.prefix;
+  hero.appendChild(prefix);
+
+  const headline = document.createElement("div");
+  headline.className = "terminal-hero__headline";
+  headline.textContent = profile.hero.headline;
+  hero.appendChild(headline);
+
+  const system = document.createElement("div");
+  system.className = "terminal-hero__system";
+  system.textContent = profile.hero.system;
+  hero.appendChild(system);
+
+  const subline = document.createElement("div");
+  subline.className = "terminal-hero__subline";
+  subline.textContent = profile.hero.subline;
+  hero.appendChild(subline);
+
+  const summary = document.createElement("div");
+  summary.className = "terminal-hero__summary";
+  profile.hero.summary.forEach((line) => {
+    summary.appendChild(createParagraph(line));
+  });
+  hero.appendChild(summary);
+
+  terminalPinned.appendChild(hero);
+
+  renderBlocksInto(terminalPinned, [
+    { kind: "list-table", title: "status", items: profile.hero.rows },
+    { kind: "grid", title: "industries i work with", items: profile.industries },
+    { kind: "list", title: "what i actually do", items: profile.work },
+    { kind: "actions", items: profile.quickActions },
+  ]);
 }
 
 function resolveCommand(input) {
@@ -517,7 +908,7 @@ const commands = {
             { label: "theme", value: "toggle phosphor light / dark (L)" },
             { label: "mute", value: "toggle audio on / off (M)" },
             { label: "time", value: "show current UTC clock" },
-            { label: "clear", value: "clears the screen (ctrl/cmd+k)" },
+            { label: "clear", value: "clears session output, keeps overview (ctrl/cmd+k)" },
             { label: "help", value: "this screen" },
           ],
         },
@@ -566,7 +957,17 @@ const commands = {
     aliases: ["fullbio"],
     description: "Print a longer biography and background.",
     run() {
-      return [{ kind: "text", title: "bio", lines: profile.bio }];
+      return [
+        {
+          kind: "text",
+          lines: ["issuing dossier..."],
+          className: "system-message",
+        },
+        {
+          kind: "dossier",
+          ...profile.dossier,
+        },
+      ];
     },
   },
   contact: {
@@ -595,7 +996,7 @@ const commands = {
   },
   clear: {
     aliases: ["cls"],
-    description: "Clear the terminal session output.",
+    description: "Clear session output while keeping the overview visible.",
     run() {
       clearTerminal();
       return null;
@@ -721,7 +1122,7 @@ function cycleSuggestions() {
 }
 
 function seedTerminal() {
-  ["about", "status", "industries", "work", "help"].forEach((commandName, index) => {
+  ["help"].forEach((commandName, index) => {
     window.setTimeout(() => {
       executeCommand(commandName, { skipHistory: true });
     }, index * 160);
@@ -770,6 +1171,7 @@ async function runBootSequence() {
   await sleep(260);
   bootScreen.classList.add("is-hidden");
   terminalShell.classList.remove("is-hidden");
+  renderPinnedOverview();
   appState.phase = "ready";
   commandInput.disabled = false;
   seedTerminal();
