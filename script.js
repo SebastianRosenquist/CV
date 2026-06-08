@@ -126,9 +126,9 @@ const profile = {
     ],
   },
   contact: [
-    { label: "phone", value: "+45 61 65 96 62", href: "tel:+4561659662" },
+    { label: "phone", value: "Send me your number or add me on LinkedIn and I will contact you :)" },
     { label: "email", value: "seb_rosenquist@hotmail.com", href: "mailto:seb_rosenquist@hotmail.com" },
-    { label: "address", value: "A. F. Beyers Vej 8 2tv., 2720 Vanlose" },
+    { label: "address", value: "In the 2720 Vanlose neighborhood" },
     {
       label: "linkedin",
       value: "linkedin.com/in/sebastian-rosenquist-ai-guru",
