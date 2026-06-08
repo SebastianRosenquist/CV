@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sebastian Rosenquist | Terminal Portfolio</title>
+    <meta
+      name="description"
+      content="Terminal-style portfolio for Sebastian Rosenquist, AI and ML consultant focused on LLMs, RAG, automation, and analytics."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="system-bar" aria-label="Terminal toolbar">
+        <div class="system-bar__identity">sebastian@portfolio &bull; /shell</div>
+
+        <div class="system-bar__status" aria-hidden="true">
+          <span>session::live</span>
+          <span class="block-cursor"></span>
+        </div>
+
+        <div class="system-bar__tools">
+          <div
+            class="utc-readout"
+            id="utcReadout"
+            aria-label="Current UTC time"
+          >
+            UTC --:--:--
+          </div>
+
+          <button
+            class="toolbar-button"
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle light and dark mode"
+            aria-pressed="false"
+            title="Toggle theme"
+          >
+            <span class="toolbar-button__dot toolbar-button__dot--amber" aria-hidden="true"></span>
+            <span class="toolbar-button__text">theme</span>
+          </button>
+
+          <button
+            class="toolbar-button"
+            id="muteToggle"
+            type="button"
+            aria-label="Toggle terminal sound"
+            aria-pressed="true"
+            title="Toggle sound"
+          >
+            <span class="toolbar-button__dot toolbar-button__dot--red" aria-hidden="true"></span>
+            <span class="toolbar-button__text">mute</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="terminal-view">
+        <section class="intro reveal">
+          <p class="terminal-line terminal-line--lead">
+            &gt; welcome. This is Sebastian Rosenquist terminal.
+          </p>
+          <p class="intro-copy">
+            Internationally raised former elite swimmer turned developer. I build AI,
+            LLM/RAG, automation, and analytics systems that connect business reality
+            with technical execution.
+          </p>
+          <p class="intro-copy intro-copy--dim">
+            Current focus: agent workflows, internal tooling, staffing platforms,
+            predictive models, and pragmatic full-stack delivery for teams that need
+            usable systems, not demos.
+          </p>
+        </section>
+
+        <div class="terminal-rule" aria-hidden="true"></div>
+
+        <section class="info-section reveal" id="status-section" aria-labelledby="status-heading">
+          <div class="section-heading" id="status-heading">$ status</div>
+          <ul class="terminal-list">
+            <li><span class="list-prefix">-&gt;</span> Associate | Tech Management Consultant at Thursday Consulting</li>
+            <li><span class="list-prefix">-&gt;</span> Based in Vanlose, Copenhagen</li>
+            <li><span class="list-prefix">-&gt;</span> Open to new challenges with technical depth and societal relevance</li>
+          </ul>
+        </section>
+
+        <div class="terminal-rule" aria-hidden="true"></div>
+
+        <section
+          class="info-section reveal"
+          id="industries-section"
+          aria-labelledby="industries-heading"
+        >
+          <div class="section-heading" id="industries-heading">$ industries_i_work_with</div>
+          <div class="industry-grid">
+            <article class="grid-cell">
+              <h2>AI / LLM tools</h2>
+              <p>RAG agents, summarization systems, workflow copilots, prompt pipelines.</p>
+            </article>
+            <article class="grid-cell">
+              <h2>SaaS / B2B systems</h2>
+              <p>Internal platforms, staffing workflows, reporting automation, scalable ops.</p>
+            </article>
+            <article class="grid-cell">
+              <h2>Energy / FinTech analytics</h2>
+              <p>Predictive modeling, data pipelines, scrapers, market and impact analysis.</p>
+            </article>
+            <article class="grid-cell">
+              <h2>Education / enablement</h2>
+              <p>Teaching technical fundamentals, MVP building, translation across business and code.</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="terminal-rule" aria-hidden="true"></div>
+
+        <section class="info-section reveal" id="work-section" aria-labelledby="work-heading">
+          <div class="section-heading" id="work-heading">$ what_i_actually_do</div>
+          <ul class="terminal-list">
+            <li><span class="list-prefix">-&gt;</span> Design systems for workflows that reduce friction in real operating teams</li>
+            <li><span class="list-prefix">-&gt;</span> Build ML, NLP, and LLM tools that turn large information sets into actions</li>
+            <li><span class="list-prefix">-&gt;</span> Ship automation across reporting, research, and data handling pipelines</li>
+            <li><span class="list-prefix">-&gt;</span> Own delivery across business framing, technical execution, and adoption</li>
+          </ul>
+        </section>
+
+        <div class="terminal-rule" aria-hidden="true"></div>
+
+        <section class="info-section reveal" aria-labelledby="contact-heading">
+          <div class="section-heading" id="contact-heading">$ contact_dump</div>
+          <div class="contact-grid">
+            <p><span class="contact-label">phone</span><a href="tel:+4561659662">+45 61 65 96 62</a></p>
+            <p><span class="contact-label">email</span><a href="mailto:seb_rosenquist@hotmail.com">seb_rosenquist@hotmail.com</a></p>
+            <p><span class="contact-label">address</span><span>A. F. Beyers Vej 8 2tv., 2720 Vanlose</span></p>
+            <p><span class="contact-label">linkedin</span><a href="https://www.linkedin.com/in/sebastian-rosenquist-ai-guru/" target="_blank" rel="noreferrer">linkedin.com/in/sebastian-rosenquist-ai-guru</a></p>
+            <p><span class="contact-label">github</span><a href="https://github.com/SebastianRosenquist" target="_blank" rel="noreferrer">github.com/SebastianRosenquist</a></p>
+          </div>
+        </section>
+
+        <section class="chip-section reveal" aria-labelledby="quick-actions-heading">
+          <div class="section-heading" id="quick-actions-heading">$ quick_access</div>
+          <div class="chip-row">
+            <button class="terminal-chip" type="button" data-command="bio">read full bio</button>
+            <button class="terminal-chip" type="button" data-command="shots">selected work</button>
+            <button class="terminal-chip" type="button" data-command="blog">blog articles</button>
+            <button class="terminal-chip" type="button" data-command="shots">ui/ux shots</button>
+            <button class="terminal-chip" type="button" data-command="contact">email me</button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="command-dock" aria-label="Interactive command line">
+        <div
+          class="command-log"
+          id="terminalLog"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          aria-label="Terminal command output"
+        ></div>
+
+        <div
+          class="command-suggestion"
+          id="commandSuggestion"
+          aria-label="Example commands"
+        >
+          try: <span id="suggestionText">help</span>
+        </div>
+
+        <form class="command-form" id="commandForm" autocomplete="off">
+          <label class="prompt-label" for="commandInput">sebastian@portfolio ~ $</label>
+          <input
+            class="command-input"
+            id="commandInput"
+            name="command"
+            type="text"
+            spellcheck="false"
+            aria-label="Terminal command input"
+            placeholder='type "help"'
+          >
+        </form>
+
+        <div class="shortcut-strip" aria-label="Keyboard shortcuts">
+          <span><code>tab</code> complete</span>
+          <span><code>&uarr;/&darr;</code> history</span>
+          <span><code>ctrl/cmd + k</code> clear</span>
+          <span><code>g</code> shots</span>
+          <span><code>l</code> light/dark</span>
+          <span><code>m</code> mute</span>
+          <span><code>esc</code> reset</span>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
