@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sebastian Rosenquist | Terminal Portfolio</title>
+    <meta
+      name="description"
+      content="Terminal-style portfolio for Sebastian Rosenquist, AI and ML consultant focused on LLMs, RAG, automation, and analytics."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <section class="boot-screen" id="bootScreen" aria-label="System boot sequence">
+        <div class="boot-screen__inner">
+          <div class="boot-log" id="bootLog" aria-live="polite" aria-atomic="false"></div>
+          <div class="boot-screen__cursor" aria-hidden="true"></div>
+          <div class="boot-screen__hint" aria-hidden="true">press enter to skip</div>
+        </div>
+      </section>
+
+      <section class="terminal-shell is-hidden" id="terminalShell" aria-label="Portfolio terminal">
+        <header class="terminal-header" aria-label="Terminal toolbar">
+          <div class="terminal-header__identity">sebastian@portfolio &bull; /shell</div>
+
+          <div class="terminal-header__status" aria-hidden="true">
+            <span>session::live</span>
+            <span class="block-cursor"></span>
+          </div>
+
+          <div class="terminal-header__tools">
+            <div class="utc-readout" id="utcReadout" aria-label="Current UTC time">UTC --:--:--</div>
+
+            <button
+              class="toolbar-button"
+              id="themeToggle"
+              type="button"
+              aria-label="Toggle light and dark mode"
+              aria-pressed="false"
+              title="Toggle theme"
+            >
+              <span class="toolbar-button__dot toolbar-button__dot--amber" aria-hidden="true"></span>
+              <span class="toolbar-button__text">light</span>
+            </button>
+
+            <button
+              class="toolbar-button"
+              id="muteToggle"
+              type="button"
+              aria-label="Toggle terminal sound"
+              aria-pressed="false"
+              title="Toggle sound"
+            >
+              <span class="toolbar-button__dot toolbar-button__dot--red" aria-hidden="true"></span>
+              <span class="toolbar-button__text">unmute</span>
+            </button>
+          </div>
+        </header>
+
+        <main class="terminal-body">
+          <section class="terminal-pinned" id="terminalPinned" aria-label="Portfolio overview"></section>
+          <div
+            class="terminal-log"
+            id="terminalLog"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions"
+            aria-label="Terminal command output"
+          ></div>
+        </main>
+
+        <footer class="terminal-footer">
+          <div class="command-suggestion" id="commandSuggestion" aria-label="Example commands">
+            try: <span id="suggestionText">help</span>
+          </div>
+
+          <form class="command-form" id="commandForm" autocomplete="off">
+            <label class="prompt-label" for="commandInput">sebastian@portfolio ~ $</label>
+            <div class="command-input-shell">
+              <div class="command-ghost" id="commandGhost" aria-hidden="true"></div>
+              <input
+                class="command-input"
+                id="commandInput"
+                name="command"
+                type="text"
+                spellcheck="false"
+                aria-label="Terminal command input"
+                placeholder="type a command"
+                disabled
+              >
+            </div>
+          </form>
+
+          <div class="shortcut-strip" aria-label="Keyboard shortcuts">
+            <span><code>tab</code> complete</span>
+            <span><code>&uarr;/&darr;</code> history</span>
+            <span><code>ctrl/cmd + k</code> clear</span>
+            <span><code>g</code> work</span>
+            <span><code>l</code> light/dark</span>
+            <span><code>m</code> mute</span>
+            <span><code>esc</code> reset</span>
+          </div>
+        </footer>
+      </section>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
