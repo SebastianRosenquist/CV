@@ -4,6 +4,8 @@ import { profile } from "./src/content.js";
 assert.equal(profile.projects.length, 4, "keep four featured work stories");
 assert.equal(profile.research.length, 4, "keep four linked research projects");
 assert(profile.research.every(({ href }) => href.startsWith("https://github.com/")), "link every research project to its source repository");
+assert.equal(profile.stack.length, 2, "keep technologies and AI stack as a separate profile section");
+assert(!profile.profile.facts.some(({ label }) => label === "technologies" || label === "AI stack"), "keep stack items out of profile facts");
 assert.equal(profile.experience.length, 7, "keep the complete experience chronology");
 assert.deepEqual(
   profile.quickActions.map(({ command }) => command),

@@ -50,8 +50,6 @@ export const profile = {
       { label: "based", value: "Copenhagen, Denmark" },
       { label: "now", value: "Thursday Consulting" },
       { label: "focus", value: "AI Engineering / Full-Stack Dev. / Automation / Analytics" },
-      { label: "technologies", value: "Python / TypeScript / React / SQL / Git & GitHub / Docker / Azure & AWS" },
-      { label: "AI stack", value: "Open-source local LLMs / Hugging Face / RAG / vector databases / agent harnesses / AI-assisted development" },
     ],
     paragraphs: [
       "I work across the full product surface: business framing, workflow design, data handling, automation logic, and the implementation detail that determines whether a system actually gets adopted.",
@@ -60,6 +58,10 @@ export const profile = {
       "I’m most effective in small, delivery-focused teams where ownership is shared, the objective is concrete, and there is enough room to go deep on the technology behind the solution. I do my best work when I can stay close to the implementation, solve real technical problems, and help move a product from idea to something people actually use.",
     ],
   },
+  stack: [
+    { label: "technologies", value: "Python / TypeScript / React / SQL / Git & GitHub / Docker / Azure & AWS" },
+    { label: "AI stack", value: "Open-source local LLMs / Hugging Face / RAG / vector databases / agent harnesses / AI-assisted development" },
+  ],
   contact: [
     { label: "email", value: "seb_rosenquist@hotmail.com", href: "mailto:seb_rosenquist@hotmail.com" },
     { label: "location", value: "Copenhagen, Denmark" },

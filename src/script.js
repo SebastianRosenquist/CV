@@ -576,6 +576,7 @@ const commands = {
     run() {
       return [
         { kind: "profile", ...profile.profile },
+        { kind: "grid", title: "practice / stack", items: profile.stack },
         { kind: "list", title: "capabilities", items: profile.work },
         { kind: "grid", title: "areas of work", items: profile.industries },
       ];
