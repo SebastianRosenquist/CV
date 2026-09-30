@@ -15,7 +15,7 @@ const commandSuggestion = document.getElementById("commandSuggestion");
 
 const promptLabel = "sebastian@portfolio ~ $";
 const commandHistory = [];
-const suggestions = ["help", "status", "industries", "work", "about", "roles", "contact", "time"];
+const suggestions = ["work", "profile", "experience", "contact", "help", "theme"];
 const bootLines = [
   "[01] SAR-OS v4.7 (phosphor build)",
   "[02] booting /dev/interface...",
@@ -226,7 +226,7 @@ function renderBlock(block) {
   }
 
   const wrapper = document.createElement("div");
-  wrapper.className = "output-block";
+  wrapper.className = `output-block${block.sectionClass ? ` ${block.sectionClass}` : ""}`;
 
   if (block.title) {
     const title = document.createElement("div");
@@ -255,7 +255,7 @@ function renderBlock(block) {
 
   if (block.kind === "grid") {
     const grid = document.createElement("div");
-    grid.className = "output-grid";
+    grid.className = `output-grid${block.className ? ` ${block.className}` : ""}`;
     block.items.forEach((item) => {
       const article = document.createElement("article");
       const label = document.createElement("span");
@@ -322,6 +322,16 @@ function renderBlock(block) {
         card.appendChild(tags);
       }
 
+      if (item.href) {
+        const link = document.createElement("a");
+        link.className = "terminal-card__link";
+        link.href = item.href;
+        link.textContent = "View repository ->";
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        card.appendChild(link);
+      }
+
       cardGrid.appendChild(card);
     });
 
@@ -374,216 +384,53 @@ function renderBlock(block) {
     wrapper.appendChild(listTable);
   }
 
-  if (block.kind === "dossier") {
-    const dossier = document.createElement("article");
-    dossier.className = "dossier-card";
+  if (block.kind === "profile") {
+    const profileCard = document.createElement("article");
+    profileCard.className = "profile-card";
 
     const header = document.createElement("div");
-    header.className = "dossier-card__header";
-
-    const shell = document.createElement("div");
-    shell.className = "dossier-card__shell";
-    shell.textContent = block.shell;
-
-    const signal = document.createElement("div");
-    signal.className = "dossier-card__signal";
-    signal.textContent = block.signal;
-
-    header.append(shell, signal);
-    dossier.appendChild(header);
-
-    const hero = document.createElement("div");
-    hero.className = "dossier-card__hero";
-
-    const operatorPanel = document.createElement("div");
-    operatorPanel.className = "dossier-card__operator";
-
-    const operatorLabel = document.createElement("div");
-    operatorLabel.className = "dossier-card__label";
-    operatorLabel.textContent = block.operatorLabel;
-
-    const operatorCode = document.createElement("div");
-    operatorCode.className = "dossier-card__code";
-    operatorCode.textContent = block.operatorCode;
-
-    const tagline = document.createElement("p");
-    tagline.className = "dossier-card__tagline";
-    tagline.textContent = block.tagline;
-
-    operatorPanel.append(operatorLabel, operatorCode, tagline);
-
-    const accessPanel = document.createElement("div");
-    accessPanel.className = "dossier-card__access";
-
-    const accessLabel = document.createElement("div");
-    accessLabel.className = "dossier-card__label";
-    accessLabel.textContent = block.accessLabel;
-
-    const accessValue = document.createElement("div");
-    accessValue.className = "dossier-card__access-code";
-    accessValue.textContent = block.accessValue;
-
-    accessPanel.append(accessLabel, accessValue);
-    hero.append(operatorPanel, accessPanel);
-    dossier.appendChild(hero);
+    header.className = "profile-card__header";
+    header.textContent = block.heading;
+    profileCard.appendChild(header);
 
     const data = document.createElement("div");
-    data.className = "dossier-card__data";
+    data.className = "profile-card__data";
 
-    const avatar = document.createElement("div");
-    avatar.className = "dossier-card__avatar";
+    const avatar = document.createElement("img");
+    avatar.className = "profile-card__avatar";
+    avatar.src = block.avatarSrc;
+    avatar.alt = block.avatarAlt;
 
-    const avatarImage = document.createElement("img");
-    avatarImage.className = "dossier-card__avatar-image";
-    avatarImage.src = block.avatarSrc;
-    avatarImage.alt = block.avatarAlt;
-    avatar.appendChild(avatarImage);
+    const details = document.createElement("div");
+    details.className = "profile-card__details";
+
+    const role = document.createElement("div");
+    role.className = "profile-card__role";
+    role.textContent = block.role;
+
+    const tagline = createParagraph(block.tagline, "profile-card__tagline");
 
     const facts = document.createElement("div");
-    facts.className = "dossier-card__facts";
-
+    facts.className = "profile-card__facts";
     block.facts.forEach((item) => {
       const row = document.createElement("div");
-      row.className = "dossier-card__fact-row";
-
-      const label = document.createElement("div");
-      label.className = "dossier-card__fact-label";
-      label.textContent = item.label;
-
-      const value = document.createElement("div");
-      value.className = "dossier-card__fact-value";
-      value.textContent = item.value;
-
-      row.append(label, value);
+      row.className = "profile-card__fact-row";
+      row.append(createParagraph(item.label, "profile-card__fact-label"), createParagraph(item.value, "profile-card__fact-value"));
       facts.appendChild(row);
     });
 
-    const sideMarks = document.createElement("div");
-    sideMarks.className = "dossier-card__marks";
-    sideMarks.setAttribute("aria-hidden", "true");
-
-    for (let index = 0; index < 3; index += 1) {
-      const mark = document.createElement("div");
-      mark.className = "dossier-card__mark";
-      sideMarks.appendChild(mark);
-    }
-
-    data.append(avatar, facts, sideMarks);
-    dossier.appendChild(data);
+    details.append(role, tagline, facts);
+    data.append(avatar, details);
+    profileCard.appendChild(data);
 
     const body = document.createElement("div");
-    body.className = "dossier-card__body";
-
-    const bodyTitle = document.createElement("div");
-    bodyTitle.className = "dossier-card__body-title";
-    bodyTitle.textContent = "dossier / full bio";
-    body.appendChild(bodyTitle);
-
-    block.paragraphs.forEach((paragraph) => {
-      body.appendChild(createParagraph(paragraph));
-    });
-
-    dossier.appendChild(body);
-
-    const sections = document.createElement("div");
-    sections.className = "dossier-card__sections";
-
-    const industriesSection = document.createElement("section");
-    industriesSection.className = "dossier-section";
-    industriesSection.appendChild(createDossierSectionTitle("industries / cleared for"));
-
-    const industriesGrid = document.createElement("div");
-    industriesGrid.className = "dossier-section__industries";
-    block.industries.forEach((item) => {
-      const cell = document.createElement("article");
-      cell.className = "dossier-industry";
-
-      const label = document.createElement("div");
-      label.className = "dossier-industry__label";
-      label.textContent = item.label;
-
-      const value = document.createElement("p");
-      value.className = "dossier-industry__value";
-      value.textContent = item.value;
-
-      cell.append(label, value);
-      industriesGrid.appendChild(cell);
-    });
-    industriesSection.appendChild(industriesGrid);
-
-    const servicesSection = document.createElement("section");
-    servicesSection.className = "dossier-section";
-    servicesSection.appendChild(createDossierSectionTitle("what i do / services"));
-
-    const servicesList = document.createElement("div");
-    servicesList.className = "dossier-section__services";
-    block.services.forEach((item) => {
-      const line = document.createElement("div");
-      line.className = "dossier-service";
-      line.textContent = item;
-      servicesList.appendChild(line);
-    });
-    servicesSection.appendChild(servicesList);
-
-    const stackSection = document.createElement("section");
-    stackSection.className = "dossier-section";
-    stackSection.appendChild(createDossierSectionTitle("practice / stack"));
-
-    const stackList = document.createElement("div");
-    stackList.className = "dossier-section__stack";
-    block.stack.forEach((item) => {
-      const row = document.createElement("div");
-      row.className = "dossier-stack__row";
-
-      const label = document.createElement("div");
-      label.className = "dossier-stack__label";
-      label.textContent = item.label;
-
-      const value = document.createElement("div");
-      value.className = "dossier-stack__value";
-      value.textContent = item.value;
-
-      row.append(label, value);
-      stackList.appendChild(row);
-    });
-    stackSection.appendChild(stackList);
-
-    const deploymentsSection = document.createElement("section");
-    deploymentsSection.className = "dossier-section";
-    deploymentsSection.appendChild(createDossierSectionTitle("prior deployments"));
-
-    const deploymentsList = document.createElement("div");
-    deploymentsList.className = "dossier-section__deployments";
-    block.deployments.forEach((item) => {
-      const row = document.createElement("div");
-      row.className = "dossier-deployment";
-
-      const main = document.createElement("div");
-      main.className = "dossier-deployment__main";
-      main.textContent = `${item.label} . ${item.value}`;
-
-      const meta = document.createElement("div");
-      meta.className = "dossier-deployment__meta";
-      meta.textContent = item.meta;
-
-      row.append(main, meta);
-      deploymentsList.appendChild(row);
-    });
-    deploymentsSection.appendChild(deploymentsList);
-
-    sections.append(industriesSection, servicesSection, stackSection, deploymentsSection);
-    dossier.appendChild(sections);
-    wrapper.appendChild(dossier);
+    body.className = "profile-card__body";
+    block.paragraphs.forEach((paragraph) => body.appendChild(createParagraph(paragraph)));
+    profileCard.appendChild(body);
+    wrapper.appendChild(profileCard);
   }
 
   return wrapper;
-}
-
-function createDossierSectionTitle(text) {
-  const title = document.createElement("div");
-  title.className = "dossier-section__title";
-  title.textContent = text;
-  return title;
 }
 
 function appendLogEntry(commandText, blocks = [], type = "command") {
@@ -641,15 +488,19 @@ function renderPinnedOverview() {
   headline.textContent = profile.hero.headline;
   hero.appendChild(headline);
 
-  const system = document.createElement("div");
-  system.className = "terminal-hero__system";
-  system.textContent = profile.hero.system;
-  hero.appendChild(system);
+  if (profile.hero.system) {
+    const system = document.createElement("div");
+    system.className = "terminal-hero__system";
+    system.textContent = profile.hero.system;
+    hero.appendChild(system);
+  }
 
-  const subline = document.createElement("div");
-  subline.className = "terminal-hero__subline";
-  subline.textContent = profile.hero.subline;
-  hero.appendChild(subline);
+  if (profile.hero.subline) {
+    const subline = document.createElement("div");
+    subline.className = "terminal-hero__subline";
+    subline.textContent = profile.hero.subline;
+    hero.appendChild(subline);
+  }
 
   const summary = document.createElement("div");
   summary.className = "terminal-hero__summary";
@@ -661,9 +512,7 @@ function renderPinnedOverview() {
   terminalPinned.appendChild(hero);
 
   renderBlocksInto(terminalPinned, [
-    { kind: "list-table", title: "status", items: profile.hero.rows },
-    { kind: "grid", title: "industries i work with", items: profile.industries },
-    { kind: "list", title: "what i actually do", items: profile.work },
+    { kind: "list-table", title: "at a glance", items: profile.hero.rows },
     { kind: "actions", items: profile.quickActions },
   ]);
 }
@@ -703,12 +552,14 @@ const commands = {
         {
           kind: "command-list",
           items: [
-            { label: "about", value: "who i am, what i'm doing now" },
-            { label: "work", value: "selected work cards and project snapshots (G)" },
-            { label: "roles", value: "what i actually do across product, AI, and delivery" },
-            { label: "articles", value: "field notes, writing, and long-form thinking" },
-            { label: "bio", value: "extended background and operator profile" },
-            { label: "contact", value: "email, social, and intro links" },
+            { label: "work", value: "four selected work stories (G)" },
+            { label: "profile", value: "background, focus, and capabilities" },
+            { label: "experience", value: "complete career chronology" },
+            { label: "research", value: "research and hobby projects with source links" },
+            { label: "status", value: "current role, location, and availability" },
+            { label: "industries", value: "operating domains and focus areas" },
+            { label: "contact", value: "direct contact and public profiles" },
+            { label: "blog", value: "writing archive status" },
             { label: "theme", value: "toggle phosphor light / dark (L)" },
             { label: "mute", value: "toggle audio on / off (M)" },
             { label: "time", value: "show current UTC clock" },
@@ -719,13 +570,15 @@ const commands = {
       ];
     },
   },
-  about: {
-    aliases: ["intro"],
-    description: "Print the short profile summary.",
+  profile: {
+    aliases: ["about", "bio", "fullbio", "intro"],
+    description: "Show background, focus, and capabilities.",
     run() {
       return [
-        { kind: "text", title: "about", lines: profile.about },
-        { kind: "actions", items: profile.quickActions },
+        { kind: "profile", ...profile.profile },
+        { kind: "grid", title: "practice / stack", items: profile.stack, className: "stack-grid", sectionClass: "profile-section" },
+        { kind: "list", title: "capabilities", items: profile.work, sectionClass: "profile-section" },
+        { kind: "grid", title: "areas of work", items: profile.industries, className: "areas-grid", sectionClass: "profile-section" },
       ];
     },
   },
@@ -750,28 +603,18 @@ const commands = {
       return [{ kind: "cards", title: "work", items: profile.projects }];
     },
   },
-  roles: {
-    aliases: ["whatido"],
-    description: "Show the core roles I actually perform.",
+  research: {
+    aliases: ["academic", "experiments", "github"],
+    description: "Show research, school, and hobby projects with source repositories.",
     run() {
-      return [{ kind: "list", title: "roles", items: profile.work }];
+      return [{ kind: "cards", title: "research", items: profile.research }];
     },
   },
-  bio: {
-    aliases: ["fullbio"],
-    description: "Print a longer biography and background.",
+  experience: {
+    aliases: ["career", "history"],
+    description: "Show the complete career chronology.",
     run() {
-      return [
-        {
-          kind: "text",
-          lines: ["issuing dossier..."],
-          className: "system-message",
-        },
-        {
-          kind: "dossier",
-          ...profile.dossier,
-        },
-      ];
+      return [{ kind: "list-table", title: "experience", items: profile.experience }];
     },
   },
   contact: {
@@ -925,14 +768,6 @@ function cycleSuggestions() {
   updateCommandGhost();
 }
 
-function seedTerminal() {
-  ["help"].forEach((commandName, index) => {
-    window.setTimeout(() => {
-      executeCommand(commandName, { skipHistory: true });
-    }, index * 160);
-  });
-}
-
 function renderBootLine(text) {
   const line = document.createElement("div");
   line.className = "boot-line";
@@ -982,7 +817,6 @@ async function runBootSequence() {
   renderPinnedOverview();
   appState.phase = "ready";
   commandInput.disabled = false;
-  seedTerminal();
   await sleep(140);
   updateCommandGhost();
   commandInput.focus();
@@ -1093,26 +927,6 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  const key = event.key.toLowerCase();
-  const typingInInput = document.activeElement === commandInput;
-  if (typingInInput || appState.phase !== "ready") {
-    return;
-  }
-
-  if (key === "g") {
-    event.preventDefault();
-    executeCommand("work", { skipHistory: true });
-  }
-
-  if (key === "l") {
-    event.preventDefault();
-    executeCommand("theme", { skipHistory: true });
-  }
-
-  if (key === "m") {
-    event.preventDefault();
-    executeCommand("mute", { skipHistory: true });
-  }
 });
 
 function requestBootSkip() {
