@@ -614,6 +614,51 @@ code {
   margin: 0;
 }
 
+.stack-section {
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--border);
+}
+
+.stack-section .output-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+.stack-section .output-title::after {
+  content: "";
+  height: 1px;
+  flex: 1 1 auto;
+  background: linear-gradient(90deg, rgba(95, 180, 111, 0.85), rgba(95, 180, 111, 0.18));
+}
+
+.stack-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stack-grid article {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--border-strong);
+  background: linear-gradient(135deg, rgba(126, 255, 180, 0.1), var(--panel) 58%);
+}
+
+.stack-grid article::before {
+  content: "//";
+  position: absolute;
+  top: 0.45rem;
+  right: 0.55rem;
+  color: var(--text-dim);
+}
+
+.stack-grid .output-label {
+  color: var(--text-bright);
+}
+
 /* ============================================================ */
 /* Project / work cards */
 /* ============================================================ */

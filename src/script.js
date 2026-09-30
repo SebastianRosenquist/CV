@@ -226,7 +226,7 @@ function renderBlock(block) {
   }
 
   const wrapper = document.createElement("div");
-  wrapper.className = "output-block";
+  wrapper.className = `output-block${block.sectionClass ? ` ${block.sectionClass}` : ""}`;
 
   if (block.title) {
     const title = document.createElement("div");
@@ -255,7 +255,7 @@ function renderBlock(block) {
 
   if (block.kind === "grid") {
     const grid = document.createElement("div");
-    grid.className = "output-grid";
+    grid.className = `output-grid${block.className ? ` ${block.className}` : ""}`;
     block.items.forEach((item) => {
       const article = document.createElement("article");
       const label = document.createElement("span");
@@ -576,7 +576,7 @@ const commands = {
     run() {
       return [
         { kind: "profile", ...profile.profile },
-        { kind: "grid", title: "practice / stack", items: profile.stack },
+        { kind: "grid", title: "practice / stack", items: profile.stack, className: "stack-grid", sectionClass: "stack-section" },
         { kind: "list", title: "capabilities", items: profile.work },
         { kind: "grid", title: "areas of work", items: profile.industries },
       ];
