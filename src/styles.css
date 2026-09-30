@@ -614,12 +614,12 @@ code {
   margin: 0;
 }
 
-.stack-section {
+.profile-section {
   padding-top: 0.95rem;
   border-top: 1px solid var(--border);
 }
 
-.stack-section .output-title {
+.profile-section .output-title {
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -629,7 +629,7 @@ code {
   white-space: nowrap;
 }
 
-.stack-section .output-title::after {
+.profile-section .output-title::after {
   content: "";
   height: 1px;
   flex: 1 1 auto;
@@ -637,6 +637,10 @@ code {
 }
 
 .stack-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.areas-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -979,6 +983,7 @@ code {
 @media (max-width: 640px) {
   .boot-screen {
     padding: 1rem;
+    min-height: 100svh;
   }
 
   .boot-screen__inner {
@@ -992,7 +997,9 @@ code {
   }
 
   .terminal-shell {
+    grid-template-rows: auto auto auto;
     width: 100%;
+    min-height: 100svh;
     padding-top: 0;
   }
 
@@ -1002,19 +1009,29 @@ code {
     border-inline-width: 0;
   }
 
-  .terminal-pinned {
-    max-height: 40vh;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-strong) transparent;
+  .terminal-body,
+  .terminal-pinned,
+  .terminal-log {
+    overflow: visible;
   }
 
-  .terminal-pinned::-webkit-scrollbar {
-    width: 8px;
+  .terminal-log {
+    height: auto;
   }
 
-  .terminal-pinned::-webkit-scrollbar-thumb {
-    background: var(--border-strong);
+  .terminal-footer {
+    position: static;
+  }
+
+  .terminal-header__tools {
+    width: 100%;
+    justify-self: stretch;
+    justify-content: flex-start;
+  }
+
+  .toolbar-button,
+  .terminal-action {
+    min-height: 2.75rem;
   }
 
   .command-form {
@@ -1055,5 +1072,13 @@ code {
 
   .shortcut-strip {
     gap: 0.55rem 0.9rem;
+  }
+
+  .list-table__value,
+  .command-list__description,
+  .output-link-item,
+  .profile-card__fact-value,
+  .terminal-card__link {
+    overflow-wrap: anywhere;
   }
 }

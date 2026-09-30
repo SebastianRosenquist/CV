@@ -13,23 +13,23 @@ export const profile = {
   industries: [
     {
       label: "AI / LLM systems",
-      value: "RAG agents, local LLMs, automation workflows, research tools, and human-in-the-loop decision support.",
+      value: "RAG agents, local LLMs, and human-in-the-loop automation.",
     },
     {
       label: "B2B platforms / Internal tooling",
-      value: "Full-stack staffing systems, operational workflows, reporting tools, resource allocation, and platform engineering.",
+      value: "Internal tools, operational workflows, staffing, and resource allocation.",
     },
     {
       label: "Energy / Quantitative analytics",
-      value: "Market analytics, predictive ML and NLP models, scraper pipelines, signal extraction, and data-driven trading support.",
+      value: "Market analytics, ML/NLP signals, data pipelines, and trading support.",
     },
     {
       label: "Digital platforms / Operations",
-      value: "CMS modernization, website migration, global platform support, and consolidation of legacy digital systems.",
+      value: "CMS modernization, website migration, and global platform support.",
     },
     {
       label: "Education / Technical enablement",
-      value: "Teaching, technical mentoring, MVP development, Git workflows, product enablement, and practical software delivery.",
+      value: "Technical mentoring, MVP delivery, Git workflows, and product enablement.",
     },
   ],
   work: [

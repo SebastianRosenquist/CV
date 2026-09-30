@@ -576,9 +576,9 @@ const commands = {
     run() {
       return [
         { kind: "profile", ...profile.profile },
-        { kind: "grid", title: "practice / stack", items: profile.stack, className: "stack-grid", sectionClass: "stack-section" },
-        { kind: "list", title: "capabilities", items: profile.work },
-        { kind: "grid", title: "areas of work", items: profile.industries },
+        { kind: "grid", title: "practice / stack", items: profile.stack, className: "stack-grid", sectionClass: "profile-section" },
+        { kind: "list", title: "capabilities", items: profile.work, sectionClass: "profile-section" },
+        { kind: "grid", title: "areas of work", items: profile.industries, className: "areas-grid", sectionClass: "profile-section" },
       ];
     },
   },
@@ -927,26 +927,6 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  const key = event.key.toLowerCase();
-  const typingInInput = document.activeElement === commandInput;
-  if (typingInInput || appState.phase !== "ready") {
-    return;
-  }
-
-  if (key === "g") {
-    event.preventDefault();
-    executeCommand("work", { skipHistory: true });
-  }
-
-  if (key === "l") {
-    event.preventDefault();
-    executeCommand("theme", { skipHistory: true });
-  }
-
-  if (key === "m") {
-    event.preventDefault();
-    executeCommand("mute", { skipHistory: true });
-  }
 });
 
 function requestBootSkip() {
