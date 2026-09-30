@@ -12,20 +12,24 @@ export const profile = {
   ],
   industries: [
     {
-      label: "AI / LLM tools",
-      value: "RAG agents, copilots, automation assistants, and knowledge-heavy interfaces.",
+      label: "AI / LLM systems",
+      value: "RAG agents, local LLMs, automation workflows, research tools, and human-in-the-loop decision support.",
     },
     {
-      label: "SaaS / B2B systems",
-      value: "Internal tooling, staffing workflows, reporting systems, and operational products.",
+      label: "B2B platforms / Internal tooling",
+      value: "Full-stack staffing systems, operational workflows, reporting tools, resource allocation, and platform engineering.",
     },
     {
-      label: "Energy / FinTech analytics",
-      value: "Market tooling, predictive models, scraping pipelines, and data-intensive decisions.",
+      label: "Energy / Quantitative analytics",
+      value: "Market analytics, predictive ML and NLP models, scraper pipelines, signal extraction, and data-driven trading support.",
     },
     {
-      label: "Education / enablement",
-      value: "Teaching, technical onboarding, MVP coaching, and developer best practices.",
+      label: "Digital platforms / Operations",
+      value: "CMS modernization, website migration, global platform support, and consolidation of legacy digital systems.",
+    },
+    {
+      label: "Education / Technical enablement",
+      value: "Teaching, technical mentoring, MVP development, Git workflows, product enablement, and practical software delivery.",
     },
   ],
   work: [
@@ -38,14 +42,16 @@ export const profile = {
     avatarSrc: "media/Profile.jpg",
     avatarAlt: "Portrait of Sebastian A. Rosenquist",
     heading: "Profile",
-    role: "AI Systems Consultant",
-    tagline: "AI-enabled tools and workflows across product, data, and implementation.",
+    role: "AI Systems & Software Engineer",
+    tagline: "Designing and building AI-powered systems, internal platforms, and data products for real operational use",
     facts: [
       { label: "name", value: "Sebastian A. Rosenquist" },
       { label: "role", value: "AI Systems Consultant" },
       { label: "based", value: "Copenhagen, Denmark" },
       { label: "now", value: "Thursday Consulting" },
-      { label: "focus", value: "LLM / Full-Stack Dev. / Automation / Analytics" },
+      { label: "focus", value: "AI Engineering / Full-Stack Dev. / Automation / Analytics" },
+      { label: "technologies", value: "Python / TypeScript / React / SQL / Git & GitHub / Docker / Azure & AWS" },
+      { label: "AI stack", value: "Open-source local LLMs / Hugging Face / RAG / vector databases / agent harnesses / AI-assisted development" },
     ],
     paragraphs: [
       "I work across the full product surface: business framing, workflow design, data handling, automation logic, and the implementation detail that determines whether a system actually gets adopted.",
@@ -75,10 +81,10 @@ export const profile = {
       meta: "Featured work",
       lines: [
         "Context — consultant research and operational workflows needed more reliable support systems.",
-        "Contribution — designed LLM/RAG and script-powered agents, including a workflow that automates a formerly manual process with critical checks and reports for user oversight. Also developed a full-stack staffing platform for data-driven request flow and resource allocation.",
+        "Contribution — designed LLM/RAG and script-powered agents, including a workflow that automates a formerly manual process with critical checks and reports for user oversight. Also developed a full-stack scalable staffing platform for data-driven request flow and resource allocation.",
         "Impact — replaced a full day's manual workload with an automated, reviewable workflow and made key operational decisions centralized and easier to act on.",
       ],
-      tags: ["LLM Agents", "Full-stack development", "Automation", "Platform Engineering"],
+      tags: ["LLM Agents", "Full-stack development", "Automation", "Platform Engineering", "Azure"],
     },
     {
       eyebrow: "Energy Trading Analyst and ML Developer . 2022 - 2025",
@@ -89,7 +95,7 @@ export const profile = {
         "Contribution — developed market analytics tools, built NLP-based predictive models, and owned scraper and data-cleaning pipelines.",
         "Impact — pioneered local-LLM use at Centrica to extract market signals from unstructured data feeds and explore a new edge for market prediction.",
       ],
-      tags: ["ML Models", "NLP", "Local LLMs", "Quantitative Analytics", "Data Pipelines"],
+      tags: ["ML Models", "NLP", "Local LLMs", "Quantitative Analytics", "Data Pipelines", "AWS"],
     },
     {
       eyebrow: "Teaching Assistant - Innovation and New Technologies . 2022 - 2025",
@@ -114,6 +120,56 @@ export const profile = {
       tags: ["CMS", "Website Migration", "Digital Operations", "Platform Modernization"],
     },
   ],
+  research: [
+    {
+      eyebrow: "Applied AI Research",
+      title: "RAG for Quantitative Risk Management",
+      meta: "GitHub",
+      lines: [
+        "Question — can retrieval-augmented generation improve an LLM's answers to EU AI Act questions published after its training cutoff?",
+        "Approach — compared Llama 3.1 responses with and without RAG to examine accuracy, error rates, and hallucination tendencies.",
+        "Focus — open-source LLMs, Hugging Face, retrieval, and regulatory information.",
+      ],
+      tags: ["Llama 3.1", "RAG", "Hugging Face", "EU AI Act"],
+      href: "https://github.com/SebastianRosenquist/QRM_LLM_Scraper",
+    },
+    {
+      eyebrow: "Energy Systems Modeling",
+      title: "Faroe Islands Interconnector Model",
+      meta: "GitHub",
+      lines: [
+        "Study — modeled seasonal electricity dispatch across the Faroe Islands, Denmark, and the UK, including alternative interconnector capacities.",
+        "Approach — built a Julia/JuMP optimization model for demand, generation, renewable feed-in, and cross-border power flows.",
+        "Output — visualized dispatch, energy exchange, curtailment, and electricity prices for each modeled node.",
+      ],
+      tags: ["Julia", "JuMP", "Optimization", "Energy Systems"],
+      href: "https://github.com/SebastianRosenquist/Energy_Systems_Faroe_Interconnector_Model",
+    },
+    {
+      eyebrow: "NLP / Social Data Analysis",
+      title: "Emotion Prediction in the Ukraine–Russia Conflict",
+      meta: "GitHub",
+      lines: [
+        "Question — how do emotions expressed in Ukraine–Russia conflict subreddit posts relate to post engagement?",
+        "Approach — trained a PRADO emotion classifier on GoEmotions data, then predicted emotions in collected Reddit post titles.",
+        "Analysis — prepared the predictions for exploratory comparison with post scores and upvotes.",
+      ],
+      tags: ["TensorFlow", "GoEmotions", "PRADO", "NLP"],
+      href: "https://github.com/SebastianRosenquist/Emotion_prediction_of_UkraineRussian_Conflict",
+    },
+    {
+      eyebrow: "Product / Hobby Project",
+      title: "ToolMan",
+      meta: "GitHub",
+      lines: [
+        "Product — an early-stage mobile app for communities to rent and share tools.",
+        "Implementation — built with React Native, Expo, and Firebase Realtime Database.",
+        "Experience — includes mobile flows for sign-up, profiles, maps, search, tool groups, and tool details.",
+      ],
+      tags: ["React Native", "Expo", "Firebase", "Mobile App"],
+      href: "https://github.com/SebastianRosenquist/toolMan",
+    },
+  ],
   experience: [
     { label: "2025 - Present", value: "Thursday Consulting — AI Systems Consultant" },
     { label: "2023 - 2025", value: "Centrica Energy Trading — Data Analyst & ML Developer" },
@@ -125,22 +181,23 @@ export const profile = {
   ],
   quickActions: [
     { label: "view selected work", command: "work" },
+    { label: "research", command: "research" },
     { label: "profile", command: "profile" },
     { label: "contact", command: "contact" },
   ],
   hero: {
     prefix: "profile / 2026",
-    system: "AI Systems Consultant",
+    system: "AI Systems & Software Engineer",
     headline: "Sebastian A. Rosenquist",
     subline: "",
     summary: [
-      "I build AI-enabled tools and workflows that connect product thinking, data, and implementation.",
-      "Currently at Thursday Consulting, delivering practical systems for research, operations, and decision-making.",
+      "I design and build AI systems, internal platforms, and data products - from problem framing through to implementation.",
+      "Currently at Thursday Consulting, working hands-on with LLM agents, full-stack systems, data infrastructure, and operational tooling."
     ],
     rows: [
       { label: "current", value: "AI Systems Consultant at Thursday Consulting" },
       { label: "based", value: "Copenhagen, Denmark" },
-      { label: "availability", value: "Open to relevant opportunities with technical depth and societal value" },
+      { label: "availability", value: "Open to technically ambitious teams where I can build, learn, and take ownership of delivery." },
     ],
   },
 };

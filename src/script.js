@@ -322,6 +322,16 @@ function renderBlock(block) {
         card.appendChild(tags);
       }
 
+      if (item.href) {
+        const link = document.createElement("a");
+        link.className = "terminal-card__link";
+        link.href = item.href;
+        link.textContent = "View repository ->";
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        card.appendChild(link);
+      }
+
       cardGrid.appendChild(card);
     });
 
@@ -542,10 +552,14 @@ const commands = {
         {
           kind: "command-list",
           items: [
-            { label: "work", value: "three selected work stories (G)" },
+            { label: "work", value: "four selected work stories (G)" },
             { label: "profile", value: "background, focus, and capabilities" },
             { label: "experience", value: "complete career chronology" },
+            { label: "research", value: "research and hobby projects with source links" },
+            { label: "status", value: "current role, location, and availability" },
+            { label: "industries", value: "operating domains and focus areas" },
             { label: "contact", value: "direct contact and public profiles" },
+            { label: "blog", value: "writing archive status" },
             { label: "theme", value: "toggle phosphor light / dark (L)" },
             { label: "mute", value: "toggle audio on / off (M)" },
             { label: "time", value: "show current UTC clock" },
@@ -586,6 +600,13 @@ const commands = {
     description: "Show selected work cards and project snapshots.",
     run() {
       return [{ kind: "cards", title: "work", items: profile.projects }];
+    },
+  },
+  research: {
+    aliases: ["academic", "experiments", "github"],
+    description: "Show research, school, and hobby projects with source repositories.",
+    run() {
+      return [{ kind: "cards", title: "research", items: profile.research }];
     },
   },
   experience: {

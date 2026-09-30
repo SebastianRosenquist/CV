@@ -697,6 +697,12 @@ html[data-theme="light"] .terminal-card--project:focus-within {
   background: rgba(6, 16, 9, 0.5);
 }
 
+.terminal-card__link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--text-bright);
+}
+
 .output-link-item strong {
   display: inline-block;
   width: 6.6rem;
